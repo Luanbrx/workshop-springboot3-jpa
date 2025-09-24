@@ -9,6 +9,10 @@ import java.util.Objects;
 @Table (name = "tb_user")
 public class User implements Serializable {
 
+    public User(){
+
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
