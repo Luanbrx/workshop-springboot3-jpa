@@ -1,6 +1,8 @@
 package com.javaacademy.spring_learning_project.resources;
 
+import com.javaacademy.spring_learning_project.entities.Order;
 import com.javaacademy.spring_learning_project.entities.User;
+import com.javaacademy.spring_learning_project.services.OrderService;
 import com.javaacademy.spring_learning_project.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,17 +18,17 @@ import java.util.List;
 public class OrderResource {
 
      @Autowired
-     private UserService service;
+     private OrderService service;
 
        @GetMapping
-     public ResponseEntity<List<User>> findAll(){
-       List<User> list = service.findAll();
+     public ResponseEntity<List<Order>> findAll(){
+       List<Order> list = service.findAll();
        return ResponseEntity.ok().body(list);
        }
 
        @GetMapping(value = "/{id}")
-    public ResponseEntity<User> findById(@PathVariable Long id){
-           User obj = service.findById(id);
+    public ResponseEntity<Order> findById(@PathVariable Long id){
+           Order obj = service.findById(id);
            return ResponseEntity.ok().body(obj);
        }
 }
