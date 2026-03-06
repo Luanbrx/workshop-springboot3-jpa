@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
-import entities.enums.OrderStatus;
+import com.javaacademy.spring_learning_project.entities.enums.OrderStatus;
 import java.time.Instant;
 import java.util.Arrays;
 
@@ -70,5 +70,10 @@ public class TestConfig implements CommandLineRunner {
         OrderItem oi4 = new OrderItem(o3, p5, 2, p5.getPrice());
 
         orderItemRepository.saveAll(Arrays.asList(oi1, oi2, oi3, oi4));
+
+        Payment pay1 = new Payment(null, Instant.parse("2026-06-20T19:53:07Z"), o1);
+        o1.setPayment(pay1);
+
+        orderRepository.save(o1);
     }
 }

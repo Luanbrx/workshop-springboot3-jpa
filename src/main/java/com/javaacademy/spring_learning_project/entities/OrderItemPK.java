@@ -1,7 +1,5 @@
-package entities.pk;
+package com.javaacademy.spring_learning_project.entities;
 
-import com.javaacademy.spring_learning_project.entities.Order;
-import com.javaacademy.spring_learning_project.entities.Product;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 

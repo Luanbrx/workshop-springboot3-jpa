@@ -1,7 +1,7 @@
 package com.javaacademy.spring_learning_project.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import entities.enums.OrderStatus;
+import com.javaacademy.spring_learning_project.entities.enums.OrderStatus;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -31,6 +31,9 @@ public class Order implements Serializable {
     @OneToMany(mappedBy = "id.order")
     private Set<OrderItem> items = new HashSet<>();
 
+    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
+    private Payment payment;
+
     public Order() {
 
     }
@@ -41,6 +44,14 @@ public class Order implements Serializable {
         this.moment = moment;
         setOrderStatus(orderStatus);
         this.client = client;
+    }
+
+    public Payment getPayment() {
+        return payment;
+    }
+
+    public void setPayment(Payment payment) {
+        this.payment = payment;
     }
 
     public Long getId() {

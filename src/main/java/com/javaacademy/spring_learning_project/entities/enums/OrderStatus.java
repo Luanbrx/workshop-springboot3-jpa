@@ -1,4 +1,4 @@
-package entities.enums;
+package com.javaacademy.spring_learning_project.entities.enums;
 
 public enum OrderStatus {
 
