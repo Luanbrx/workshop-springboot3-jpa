@@ -1,7 +1,9 @@
 package com.javaacademy.spring_learning_project.config;
 
+import com.javaacademy.spring_learning_project.entities.Category;
 import com.javaacademy.spring_learning_project.entities.Order;
 import com.javaacademy.spring_learning_project.entities.User;
+import com.javaacademy.spring_learning_project.repositories.CategoryRepository;
 import com.javaacademy.spring_learning_project.repositories.OrderRepository;
 import com.javaacademy.spring_learning_project.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,10 +20,21 @@ public class TestConfig implements CommandLineRunner {
 
     @Autowired
     private UserRepository userRepository;
+
     @Autowired
     private OrderRepository orderRepository;
+
+    @Autowired
+    private CategoryRepository categoryRepository;
+
+    Category cat1 = new Category(null, "Electronics");
+    Category cat2 = new Category(null, "Books");
+    Category cat3 = new Category(null, "Computers");
+
     @Override
     public  void run(String... argrs) throws  Exception{
+
+        categoryRepository.saveAll(Arrays.asList(cat1, cat2, cat3));
 
         User u1 = new User(null, "Maria Brown", "maria@gmail.com", "98888888", "123456");
         User u2 = new User(null, "Alex Brown", "alex@gmail.com", "1112888", "123456");
