@@ -1,0 +1,19 @@
+CONFIGURAÇÃO DE CONEXÃO (EXEMPLO)
+
+Substitua os valores abaixo pelos dados do seu banco de dados
+
+spring.datasource.url=jdbc:postgresql://<SEU_HOST_AQUI>:5432/<NOME_DO_BANCO>?sslmode=require
+spring.datasource.username=<SEU_USUARIO_AQUI>
+spring.datasource.password=<SUA_SENHA_AQUI>
+
+CONFIGURAÇÕES JPA/HIBERNATE
+
+spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation=true
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+
+CONFIGURAÇÕES DE SEGURANÇA (JWT)
+
+jwt.secret=SUA_CHAVE_MESTRA_AQUI
+jwt.expiration=3600000
